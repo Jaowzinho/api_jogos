@@ -1,8 +1,8 @@
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host: 'centerbeam.proxy.rlwy.net',
-  port: 41935,
+  host: 'mysql.railway.internal',
+  port: 3306,
   user: 'root',
   password: 'eIdZxvQJMjuAOSodYQPQKPClPvYPIYTU',
   database: 'railway'
