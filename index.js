@@ -1,18 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+const jogoRoutes = require('./routes/jogoRoutes');
 
-app.use(express.json());
+app.use(cors());
+app.use(express.json()); // permite JSON
+app.use('/uploads', express.static('uploads')); // se for usar imagens
+app.use('/api', jogoRoutes);
 
-// Rota de teste
-app.get('/', (req, res) => {
-  res.send('API está funcionando no Railway 🚀');
-});
-
-// Outras rotas
-app.use('/api/jogos', require('./rotas/jogos'));
-
-// Porta dinâmica para Railway
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
-  console.log('Servidor rodando na porta ${PORT}');
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
